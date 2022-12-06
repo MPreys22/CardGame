@@ -35,7 +35,7 @@ public class Deck {
             return null;
         }
         cardsLeft--;
-        return cards.get(cardsLeft + 1);
+        return cards.get(cardsLeft);
     }
     public void shuffle() {
         Card temp;
