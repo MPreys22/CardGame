@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Deck {
-    //Instance Variables
     private ArrayList<Card> cards;
     private int cardsLeft;
 
+    // initialize deck of cards using previously declared arrays of suits, values, and ranks
     public Deck(String[] ranks, String[] suits, int[] values) {
         cards = new ArrayList<Card>();
         for (int i=0; i<ranks.length; i++) {
@@ -17,6 +17,7 @@ public class Deck {
         shuffle();
     }
 
+    // check if array has nothing left
     public boolean isEmpty() {
         if (getCardsLeft() == 0) {
             return true;
@@ -26,10 +27,12 @@ public class Deck {
         }
     }
 
+    // cards left in deck
     public int getCardsLeft() {
         return cardsLeft;
     }
 
+    // deals card making sure deck is not empty and edits cardsLft variable
     public Card deal() {
         if(isEmpty()) {
             return null;
@@ -37,6 +40,8 @@ public class Deck {
         cardsLeft--;
         return cards.get(cardsLeft);
     }
+
+    // shuffles deck using math random and swapping values current i instance with random instance in array
     public void shuffle() {
         Card temp;
         int index;
