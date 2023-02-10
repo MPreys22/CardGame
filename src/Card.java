@@ -1,14 +1,24 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Card {
     private String rank;
     private String suit;
     private int point;
+    private GameViewer gameView;
+
+    private Image card;
+
 
     // sets all values of one card (suit, rank, point value)
-    public Card(String rank, String suit, int point) {
+    public Card(String rank, String suit, int point, GameViewer gameView, Image card) {
         this.rank = rank;
         this.suit = suit;
         this.point = point;
+        this.gameView = gameView;
+        this.card = card;
     }
+
 
     // getter and setters for rank suit and points
     public String getRank() {
@@ -39,5 +49,11 @@ public class Card {
     @Override
     public String toString() {
         return rank + " of " + suit;
+    }
+
+    public void draw(Graphics g) {
+            g.drawImage(card, 200, 100, 400, 400, this.gameView);
+
+
     }
 }

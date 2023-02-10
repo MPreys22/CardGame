@@ -1,15 +1,24 @@
+import javax.swing.*;
 import java.util.ArrayList;
+import java.awt.Image;
 
 public class Deck {
     private ArrayList<Card> cards;
     private int cardsLeft;
 
     // initialize deck of cards using previously declared arrays of suits, values, and ranks
-    public Deck(String[] ranks, String[] suits, int[] values) {
+    public Deck(String[] ranks, String[] suits, int[] values, GameViewer window) {
+        Image cardImage;
+        String path = "Recources/Cards/";
+        String add;
+        String path2;
         cards = new ArrayList<Card>();
         for (int i=0; i<ranks.length; i++) {
             for (int j=0; j<suits.length; j++) {
-                Card card = new Card(ranks[i], suits[j], values[i]);
+                add = String.valueOf(((i*4) + 1)+j);
+                path2 = path + add + ".png";
+                cardImage = new ImageIcon(path2).getImage();
+                Card card = new Card(ranks[i], suits[j], values[i], window, cardImage);
                 cards.add(card);
             }
         }
