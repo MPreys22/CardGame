@@ -67,7 +67,6 @@ public class Game {
            String response = input.next();
            // if the user stands check winner and end round
            if (response.equals("stand")) {
-               bool = true;
                if(checkWinner() == 1) {
                    System.out.println("The dealer had more than 21 points and you win!");
                    return;
@@ -114,10 +113,6 @@ public class Game {
         else {
             return 4;
         }
-    }
-
-    public boolean ifCheckWinner(){
-        return bool;
     }
 
     public Player getPlayer1() {

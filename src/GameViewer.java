@@ -25,22 +25,38 @@ public class GameViewer extends JFrame {
             g.setColor(Color.black);
             g.setFont(new Font("Serif", Font.PLAIN, 50));
 
-            g.drawString("USER DRAW: ", 250, 75);
-            g.setFont(new Font("Serif", Font.PLAIN, 25));
+            if(this.game.checkWinner() == 1) {
+                g.drawString("USER SCORE: " + totalScore, 250, 75);
+                g.drawString("DEALER SCORE: " + dealScore, 250, 125);
+                g.drawString("THE DEALER HAD OVER 21 AND YOU WIN!: ", 250, 175);
+                return;
+            }
+            else if(this.game.checkWinner() == 2) {
+                g.drawString("USER SCORE: " + totalScore, 250, 75);
+                g.drawString("DEALER SCORE: " + dealScore, 250, 125);
+                g.drawString("YOU LOSE!: ", 250, 175);
+                return;
+            }
+            else if (this.game.checkWinner() == 3) {
+                g.drawString("USER SCORE: " + totalScore, 250, 75);
+                g.drawString("DEALER SCORE: " + dealScore, 250, 125);
+                g.drawString("YOU WIN!: ", 250, 175);
+                return;
+            }
+            else if (this.game.checkWinner() == 4) {
+                g.drawString("USER SCORE: " + totalScore, 250, 75);
+                g.drawString("DEALER SCORE: " + dealScore, 250, 125);
+                g.drawString("ITS A DRAW!: ", 250, 175);
+                return;
+            }
+            else {
+                g.drawString("USER DRAW: ", 250, 75);
+                g.setFont(new Font("Serif", Font.PLAIN, 25));
 
-            this.game.getCard().draw(g);
+                this.game.getCard().draw(g);
 
-            g.drawString("Card Score: " + String.valueOf(score), 200, 600);
-            g.drawString("Total Score: " + String.valueOf(totalScore), 200, 700);
-
-            if (this.game.ifCheckWinner()) {
-                g.setColor(Color.white);
-                g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-                g.setColor(Color.black);
-                g.drawString("RESULTS: ", 250, 75);
-                g.drawString("USER SCORE: " + String.valueOf(totalScore), 250, 100);
-                g.drawString("DEALER SCORE: " + String.valueOf(dealScore), 250, 200);
-
+                g.drawString("Card Score: " + String.valueOf(score), 200, 600);
+                g.drawString("Total Score: " + String.valueOf(totalScore), 200, 700);
             }
         }
     }
