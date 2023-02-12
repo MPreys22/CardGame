@@ -1,3 +1,4 @@
+// Michael Preys
 import javax.swing.*;
 import java.util.ArrayList;
 import java.awt.Image;
@@ -6,7 +7,7 @@ public class Deck {
     private ArrayList<Card> cards;
     private int cardsLeft;
 
-    // initialize deck of cards using previously declared arrays of suits, values, and ranks
+    // Initialize deck of cards using previously declared arrays of suits, values, and ranks
     public Deck(String[] ranks, String[] suits, int[] values, GameViewer window) {
         Image cardImage;
         String path = "Recources/Cards/";
@@ -26,7 +27,7 @@ public class Deck {
         shuffle();
     }
 
-    // check if array has nothing left
+    // Check if array has nothing left
     public boolean isEmpty() {
         if (getCardsLeft() == 0) {
             return true;
@@ -36,12 +37,12 @@ public class Deck {
         }
     }
 
-    // cards left in deck
+    // Cards left in deck
     public int getCardsLeft() {
         return cardsLeft;
     }
 
-    // deals card making sure deck is not empty and edits cardsLft variable
+    // Deals card making sure deck is not empty and edits cardsLft variable
     public Card deal() {
         if(isEmpty()) {
             return null;
@@ -50,7 +51,7 @@ public class Deck {
         return cards.get(cardsLeft);
     }
 
-    // shuffles deck using math random and swapping values current i instance with random instance in array
+    // Shuffles deck using math random and swapping values current i instance with random instance in array
     public void shuffle() {
         Card temp;
         int index;

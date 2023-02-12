@@ -1,3 +1,4 @@
+// Michael Preys
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +11,7 @@ public class Card {
     private Image card;
 
 
-    // sets all values of one card (suit, rank, point value)
+    // Sets all values of one card (suit, rank, point value)
     public Card(String rank, String suit, int point, GameViewer gameView, Image card) {
         this.rank = rank;
         this.suit = suit;
@@ -20,7 +21,7 @@ public class Card {
     }
 
 
-    // getter and setters for rank suit and points
+    // Getter and setters for rank suit and points
     public String getRank() {
         return rank;
     }
@@ -45,7 +46,7 @@ public class Card {
         this.point = point;
     }
 
-    // print what the card is (suit and rank)
+    // Print what the card is (suit and rank)
     @Override
     public String toString() {
         return rank + " of " + suit;
